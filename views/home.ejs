@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Story Homepage</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+        body{
+            background: url('https://plus.unsplash.com/premium_photo-1685793803975-2f330a16ee10?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+            color: white;
+            background-size: 100% 100%; 
+            background-attachment: fixed;
+            font-family: "Josefin Sans", sans-serif;
+            font-optical-sizing: auto;
+
+        }
+        h1{
+          font-size: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            font-style: normal;
+        }
+        .stories{
+            background-color: transparent;
+
+            border: 1px solid white;
+            width: 100%;
+        }
+        .list{
+            background-color: rgba(47, 15, 15, 0.638);
+            margin: 0;
+            padding: 0;
+            margin: 10px;
+            border: 1px solid white;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header{
+            height: 70px;
+            width: 100%;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid white;
+            backdrop-filter: blur(10px);
+        }
+        .button{
+            border: 1px solid white;
+            height: 30px;
+            width: 30px;
+            background-color: green;
+            align-items: center;
+            text-align: center;
+            margin-left: 10px;
+            margin: 10px;
+        }
+        .pages{
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+          textarea {
+              height: 60vh; /* Reduce height slightly for small screens */
+              font-size: 14px; /* Adjust font size */
+              padding: 8px; /* Adjust padding */
+          }
+          .pages{
+            text-align: center;
+            height: 10px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+          textarea {
+              height: 50vh; /* Further reduce height for very small screens */
+              font-size: 12px;
+
+          }
+          .pages{
+            text-align: center;
+            height: 10px;
+        }
+      }
+    </style>
+</head>
+<body>
+  <div class="header">
+    <h1>📖 Story Collection</h1>
+    <a href="/write" class="button">✍️</a>
+  </div>
+
+  <div class="stories">
+    <% stories.forEach(story => { %>
+        <div class="list">
+          <h3><a href="/stories/<%= story.id %>"><%= story.title %></a></h3>
+        </div>
+      <% }); %>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pages">
+    <% if (page > 1) { %>
+      <a href="/?page=<%= page - 1 %>">⬅️ Previous</a>
+    <% } %>
+
+    <% for (let i = 1; i <= totalPages; i++) { %>
+      <a href="/?page=<%= i %>">
+        <%= i %>
+      </a>
+    <% } %>
+
+    <% if (page < totalPages) { %>
+      <a href="/?page=<%= page + 1 %>">Next ➡️</a>
+    <% } %>
+  </div>
+</body>
+</html>

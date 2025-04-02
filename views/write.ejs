@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Write a Story</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+        body{
+            background: url('https://plus.unsplash.com/premium_photo-1685793803975-2f330a16ee10?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+            color: white;
+            background-size: 100% 100%; 
+            background-attachment: fixed;
+            font-family: "Josefin Sans", sans-serif;
+            font-optical-sizing: auto;
+        }
+        h1{
+            align-items: center;
+            text-align: center;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        input{
+            width: 80%;
+            height: 40px;
+            margin: 10px;
+            outline: none;
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+            background-color: transparent;
+            
+        }
+        input:focus {
+            border-color: none;
+            color: white;
+            
+        }
+        textarea{
+            width: 80%;
+            height: 450px;
+            outline: none;
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+            background-color: transparent;
+        }
+        textarea:focus {
+            border-color: none;
+            color: white;
+            border: 1px solid white;
+        }
+        button{
+            margin: 20px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+        button:hover{
+            background-color: green;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            textarea {
+                height: 60vh; /* Reduce height slightly for small screens */
+                font-size: 14px; /* Adjust font size */
+                padding: 8px; /* Adjust padding */
+            }
+            button{
+                margin: 20px;
+                height: 40px;
+                background: transparent;
+                border: 1px solid white;
+                color: white;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            textarea {
+                height: 50vh; /* Further reduce height for very small screens */
+                font-size: 12px;
+            }
+            button{
+                margin: 20px;
+                height: 40px;
+                background: transparent;
+                border: 1px solid white;
+                color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+  <h1>Write Your Story</h1>
+  <form action="/stories" method="POST">
+    <input type="text" name="title" placeholder="Story Title" required>
+    <textarea name="content" placeholder="Write your story..." required></textarea>
+    <button type="submit">Post Story</button>
+  </form>
+</body>
+</html>

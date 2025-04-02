@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><title>Story App</title></head>
+<body>
+  <h1>Stories</h1>
+  <a href="/write">✍️ Write a New Story</a>
+  <ul>
+    <% stories.forEach(story => { %>
+      <li>
+        <a href="/stories/<%= story.id %>"><%= story.title %></a>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head><title>Story App</title></head>
+<body>
+  <h1>Stories</h1>
+  <a href="/write">✍️ Write a New Story</a>
+  <ul>
+    <% stories.forEach(story => { %>
+      <li>
+        <a href="/stories/<%= story.id %>"><%= story.title %></a>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
