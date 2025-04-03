@@ -55,7 +55,7 @@ app.post("/stories", async (req, res) => {
 app.get("/stories/:id", async (req, res) => {
     const { id } = req.params;
     const page = parseInt(req.query.page) || 1; // Default to page 1
-    const linesPerPage = 200;
+    const linesPerPage = 100;
   
     const result = await pool.query("SELECT * FROM stories WHERE id = $1", [id]);
     const story = result.rows[0];
